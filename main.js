@@ -28,7 +28,7 @@ async function renderAllPokemon() {
 
 async function renderPokemonInfo(index, currentPokemon) {
     renderInfoFront(index, currentPokemon);
-    // renderInfoBack();
+    renderInfoBack(index, currentPokemon);
 }
 
 function renderInfoFront(index, currentPokemon) {
@@ -39,11 +39,28 @@ function renderInfoFront(index, currentPokemon) {
     name.innerHTML = capitalizeFirstLetter(currentPokemon['name']);
     pokeid.innerHTML = `Pokemon ID #${currentPokemon['id']}`;
     img.src = currentPokemon['sprites']['front_default'];
-    // types.innerHTML = renderPokemonTypes();
+    renderPokemonTypes(index, currentPokemon);
 }
 
-function renderPokemonTypes() {
-    // for (each type ein img)
+function renderPokemonTypes(index, currentPokemon) {
+    let types = currentPokemon['types'];
+
+    console.log(types)
+    console.log(currentPokemon)
+    types.innerHTML = '';
+    for (let i = 0; i < types.length; i++) {
+        let typename = types[i]['type']['name'];
+        console.log(typename)
+        let showTypes = document.getElementById(`pokemonTypes${index}`);
+        showTypes.innerHTML += templatePokemonTypes(typename);
+    }
+}
+
+function renderInfoBack(index, currentPokemon) {
+    let name = document.getElementById(`pokemonnameBack${index}`);
+    let pokeid = document.getElementById(`pokedexIDBack${index}`);
+    name.innerHTML = capitalizeFirstLetter(currentPokemon['name']);
+    pokeid.innerHTML = `Pokemon ID #${currentPokemon['id']}`;
 }
 
 function capitalizeFirstLetter(string) {
