@@ -47,7 +47,7 @@ function dropdown(index){ //mit get elementbyid jeweils id
 
 function renderPokemon(){
     let allPokemon = document.getElementById('mainContent');
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 15; i++) {
         allPokemon.innerHTML += templatePokemonCard(i);
         
     }
