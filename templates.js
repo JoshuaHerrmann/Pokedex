@@ -9,7 +9,7 @@ function templatePokemonCard(index) {
         <div class="pokemonImg" ><img id="pokemonImg${index}" src="img/bulbasaur.jpg" alt="pic von pokemon"></div>
         <div class="pokemonTypes" id="pokemonTypes${index}"></div>
     </div>
-    <div class="cardcontentback" id="back">
+    <div class="cardcontentback" id="back${index}">
         <h1 class="pokemonname" id="pokemonnameBack${index}">Pokemonname</h1>
         <div class="pokedexID" id="pokedexIDBack${index}">PokemonID</div>
     </div>
@@ -19,6 +19,6 @@ function templatePokemonCard(index) {
 
 function templatePokemonTypes(typename) {
     return `
-    <div class="typediv, farbe${typename}">${typename}</div>
+    <div class="typediv, type${typename}">${typename}</div>
     `
 }

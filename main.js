@@ -49,18 +49,22 @@ function renderPokemonTypes(index, currentPokemon) {
     console.log(currentPokemon)
     types.innerHTML = '';
     for (let i = 0; i < types.length; i++) {
+        let back = document.getElementById(`back${index}`)
         let typename = types[i]['type']['name'];
         console.log(typename)
         let showTypes = document.getElementById(`pokemonTypes${index}`);
         showTypes.innerHTML += templatePokemonTypes(typename);
+        back.classList.add(`type${types[0]['type']['name']}`);
     }
 }
 
 function renderInfoBack(index, currentPokemon) {
     let name = document.getElementById(`pokemonnameBack${index}`);
     let pokeid = document.getElementById(`pokedexIDBack${index}`);
+
     name.innerHTML = capitalizeFirstLetter(currentPokemon['name']);
     pokeid.innerHTML = `Pokemon ID #${currentPokemon['id']}`;
+
 }
 
 function capitalizeFirstLetter(string) {

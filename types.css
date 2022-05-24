@@ -1,0 +1,204 @@
+:root {
+    /* Textcolor */
+    --normal: ;
+    --fighting: ;
+    --flying: ;
+    --poison: ;
+    --ground: ;
+    --rock: ;
+    --bug: ;
+    --ghost: ;
+    --steel: ;
+    --fire: ;
+    --water: ;
+    --grass: ;
+    --electric: ;
+    --psychic: ;
+    --ice: ;
+    --dragon: ;
+    --dark: ;
+    --fairy: ;
+    --unknown: ;
+    --shadow: ;
+    /* Backgroudncolor */
+    --bgnormal: #B6B7A9;
+    --bgfighting: #A55544;
+    --bgflying: #7BA4FF;
+    --bgpoison: #A85EA0;
+    --bgground: #E9C958;
+    --bgrock: #CEBC74;
+    --bgbug: #C2D11E;
+    --bgghost: #7975D4;
+    --bgsteel: #C4C2D8;
+    --bgfire: #FA5542;
+    --bgwater: #55AEFE;
+    --bggrass: #8CD851;
+    --bgelectric: #FDE63E;
+    --bgpsychic: #FA65B6;
+    --bgice: #95F1FE;
+    --bgdragon: #8972FF;
+    --bgdark: #8C6754;
+    --bgfairy: #FAADFF;
+    --bgunknown: ;
+    --bgshadow: ;
+}
+
+.typenormal {
+    color: var();
+    background-color: var(--bgnormal);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typefighting {
+    color: var();
+    background-color: var(--bgfighting);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typeflying {
+    color: var();
+    background-color: var(--bgflying);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typepoison {
+    color: var();
+    background-color: var(--bgpoison);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typeground {
+    color: var();
+    background-color: var(--bgground);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typerock {
+    color: var();
+    background-color: var(--bgrock);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typebug {
+    color: var();
+    background-color: var(--bgbug);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typeghost {
+    color: var();
+    background-color: var(--bgghost);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typesteel {
+    color: var();
+    background-color: var(--bgsteel);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typefire {
+    color: var();
+    background-color: var(--bgfire);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typewater {
+    color: var();
+    background-color: var(--bgwater);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typegrass {
+    color: var();
+    background-color: var(--bggrass);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typeelectric {
+    color: var();
+    background-color: var(--bgelectric);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typepsychic {
+    color: var();
+    background-color: var(--bgpsychic);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typeice {
+    color: var();
+    background-color: var(--bgice);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typedragon {
+    color: var();
+    background-color: var(--bgdragon);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typedark {
+    color: var();
+    background-color: var(--bgdark);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typefairy {
+    color: var();
+    background-color: var(--bgfairy);
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typeunknown {
+    color: var();
+    background-color: var();
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
+
+.typeshadow {
+    color: var();
+    background-color: var();
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+}
