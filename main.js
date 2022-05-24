@@ -1,54 +1,51 @@
 let currentPokemon;
+let max_pokemon = 10;
 async function loadPokemon() {
-    let url = 'https://pokeapi.co/api/v2/pokemon/charmander';
+    /* let url = 'https://pokeapi.co/api/v2/pokemon/charmander';
     let response = await fetch(url);
     let allPokemons = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
     allPokemonsjson = await allPokemons.json();
     currentPokemon = await response.json();
     console.log(allPokemonsjson);
-    console.log(currentPokemon);
-
-    // renderPokemonInfo(currentPokemon);
+    console.log(currentPokemon); */
     renderAllPokemon();
-}
 
-function renderPokemonInfo(currentPokemon) {
-    let name = document.getElementById('name');
-    let img = document.getElementById('img');
-    name.innerHTML = currentPokemon['name'];
-    img.src = currentPokemon['sprites']['front_default'];
 
 }
 
 async function renderAllPokemon() {
-    let content = document.getElementById('allpokemon');
-    let allPokemons = await fetch('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0')
+    let content = document.getElementById('mainContent');
+    let allPokemons = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${max_pokemon}&offset=0`)
     allPokemonsjson = await allPokemons.json();
     for (let i = 0; i < allPokemonsjson['count']; i++) {
         let urlsingle = allPokemonsjson['results'][i]['url']
-        let urlsinglejson = await fetch(urlsingle)
-        content.innerHTML += `${i+1}. ${allPokemonsjson['results'][i]['name']}<br>`
-        singlepokemon = await urlsinglejson.json();
-        content.innerHTML += `<img src="${singlepokemon[`sprites`]['front_default']}" alt=""><br>`
-    }
-}
-// design functions
-function dropdown(index){ //mit get elementbyid jeweils id
-    let content = document.getElementById(`dropdowncontent${index}`);
-    let arrow = document.getElementById(`arrowimg${index}`);
-    if(content.classList.contains("d-none")){
-        content.classList.remove("d-none")
-        arrow.src = "img/arrow-32-up.png"
-    }else{
-        content.classList.add("d-none")
-        arrow.src = "img/arrow-32-down.png"
+        let urlsingleresponse = await fetch(urlsingle)
+        let urlsinglejson = await urlsingleresponse.json();
+        content.innerHTML += templatePokemonCard(i);
+        renderPokemonInfo(i, urlsinglejson);
     }
 }
 
-function renderPokemon(){
-    let allPokemon = document.getElementById('mainContent');
-    for (let i = 0; i < 15; i++) {
-        allPokemon.innerHTML += templatePokemonCard(i);
-        
-    }
+async function renderPokemonInfo(index, currentPokemon) {
+    renderInfoFront(index, currentPokemon);
+    // renderInfoBack();
+}
+
+function renderInfoFront(index, currentPokemon) {
+    let name = document.getElementById(`pokemonname${index}`);
+    let pokeid = document.getElementById(`pokedexID${index}`)
+    let img = document.getElementById(`pokemonImg${index}`);
+    let types = document.getElementById(`pokemonTypes${index}`);
+    name.innerHTML = capitalizeFirstLetter(currentPokemon['name']);
+    pokeid.innerHTML = `Pokemon ID #${currentPokemon['id']}`;
+    img.src = currentPokemon['sprites']['front_default'];
+    // types.innerHTML = renderPokemonTypes();
+}
+
+function renderPokemonTypes() {
+    // for (each type ein img)
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
