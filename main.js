@@ -2,6 +2,8 @@ let currentPokemon;
 let max_pokemon = 10;
 let allPokemonArray = [];
 let searchPokemonArray = [];
+
+//functions
 async function renderAllPokemon() {
     let content = document.getElementById('mainContent');
     content.innerHTML = ``;
@@ -26,22 +28,19 @@ function renderInfoFront(index, currentPokemon) {
     let pokeid = document.getElementById(`pokedexID${index}`)
     let img = document.getElementById(`pokemonImg${index}`);
     name.innerHTML = capitalizeFirstLetter(currentPokemon['name']);
-    pokeid.innerHTML = `Pokemon ID #${currentPokemon['id']}`;
+    pokeid.innerHTML = `Pokedex ID #${currentPokemon['id']}`;
     img.src = currentPokemon['sprites']['front_default'];
     renderPokemonTypes(index, currentPokemon);
 }
 
 function renderPokemonTypes(index, currentPokemon) {
     let types = currentPokemon['types'];
-    // console.log(types) //deleted soon
-    // console.log(currentPokemon) //deleted soon
     types.innerHTML = '';
     for (let i = 0; i < types.length; i++) {
         let back = document.getElementById(`back${index}`)
         let typename = types[i]['type']['name'];
         let imgbg = document.getElementById(`imgdiv${index}`);
         let showTypes = document.getElementById(`pokemonTypes${index}`);
-        // console.log(typename)
         showTypes.innerHTML += templatePokemonTypes(typename);
         back.classList.add(`type${types[0]['type']['name']}`);
         imgbg.classList.add(`type${types[0]['type']['name']}`);
@@ -70,7 +69,7 @@ async function howManyPokemons() {
 async function searchPokemon() {
     let input = document.getElementById('inputsearch');
     if (input.value == '') {
-        console.log("leer")
+        max_pokemon = 10;
         renderAllPokemon();
     } else {
         await searchPokemonInJson();
@@ -91,6 +90,9 @@ async function searchPokemonInJson() {
     }
 }
 async function renderSinglePokemon(i, pokemonname) {
+    if (pokemonname == undefined) {
+        return
+    }
     let content = document.getElementById('mainContent');
     content.innerHTML = ``;
     let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonname}`)
@@ -101,7 +103,7 @@ async function renderSinglePokemon(i, pokemonname) {
 }
 
 async function loadAllPokemon() {
-    let url = "https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0"
+    let url = "https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0"
     let response = await fetch(url);
     let pokemonjson = await response.json();
     for (let i = 0; i < pokemonjson['count']; i++) {

@@ -1,0 +1,15 @@
+/* koulen-regular - latin_khmer */
+
+@font-face {
+    font-family: 'Koulen';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/koulen-v25-latin_khmer-regular.eot');
+    /* IE9 Compat Modes */
+    src: local(''), url('./fonts/koulen-v25-latin_khmer-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('./fonts/koulen-v25-latin_khmer-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('./fonts/koulen-v25-latin_khmer-regular.woff') format('woff'), /* Modern Browsers */
+    url('./fonts/koulen-v25-latin_khmer-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('./fonts/koulen-v25-latin_khmer-regular.svg#Koulen') format('svg');
+    /* Legacy iOS */
+}

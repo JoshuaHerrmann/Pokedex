@@ -9,14 +9,19 @@
     <script src="templates.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="types.css">
+    <link rel="stylesheet" href="fonts.css">
+
     <title>Pokedex</title>
 </head>
 
 <body onload="renderAllPokemon(), loadAllPokemon()">
     <header>
-        <h1>Pokedex</h1>
-        <div><input type="text" id="inputsearch" placeholder="Pokemon suchen..." onkeyup="searchPokemon()"><button onclick="loadAllPokemon()">x</button></div>
-        <div><input type="number" name="" value="10" id="hmpsinput" min="10" max="1000"><button onclick="howManyPokemons()" class="howManyPokemons">How many Pokemons shown?</button></div>
+        <h1 class="headerlogo">Pokedex</h1>
+        <div class="dropdown">
+            <h1>Load More</h1>
+            <div id="loadbtn" class="loadbtn"><input type="number" name="" value="10" id="hmpsinput" min="10" max="1000"><button onclick="howManyPokemons()" class="howManyPokemons">Max-Load...</button></div>
+        </div>
+        <div class="searchbar"><input type="text" id="inputsearch" class="inputsearch" placeholder="Search Pokemon..." onkeyup="searchPokemon()"></div>
     </header>
     <div class="mainContent" id="mainContent">
     </div>
@@ -24,3 +29,56 @@
 </body>
 
 </html>
+
+<div class="cardcontentback" id="back${index}">
+    <h1 class="pokemonname" id="pokemonnameBack${index}">Pokemonname</h1>
+    <div class="pokedexID" id="pokedexIDBack${index}">PokemonID</div>
+    <div>
+        <table>
+            <tr>
+                <td>Weight:</td>
+                <td>123</td>
+            </tr>
+            <tr>
+                <td>Height:</td>
+                <td>200m</td>
+            </tr>
+            <tr>
+                <td>Sex:</td>
+                <td>Female/Both</td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>Poisen, Grass</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td>HP:</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>Attack:</td>
+                <td>57</td>
+            </tr>
+            <tr>
+                <td>Defense:</td>
+                <td>23</td>
+            </tr>
+            <tr>
+                <td>Spec-Attack:</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>Spec-Defense:</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>Initiative:</td>
+                <td>68</td>
+            </tr>
+        </table>
+    </div>
+</div>
