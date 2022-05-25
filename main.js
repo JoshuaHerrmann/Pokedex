@@ -1,6 +1,7 @@
 let currentPokemon;
 let max_pokemon = 10;
-
+let allPokemonArray = [];
+let searchPokemonArray = [];
 async function renderAllPokemon() {
     let content = document.getElementById('mainContent');
     content.innerHTML = ``;
@@ -50,7 +51,6 @@ function renderPokemonTypes(index, currentPokemon) {
 function renderInfoBack(index, currentPokemon) {
     let name = document.getElementById(`pokemonnameBack${index}`);
     let pokeid = document.getElementById(`pokedexIDBack${index}`);
-
     name.innerHTML = capitalizeFirstLetter(currentPokemon['name']);
     pokeid.innerHTML = `Pokemon ID #${currentPokemon['id']}`;
 
@@ -65,43 +65,49 @@ async function howManyPokemons() {
         max_pokemon = max;
         renderAllPokemon();
     }
-
 }
 
 async function searchPokemon() {
     let input = document.getElementById('inputsearch');
     if (input.value == '') {
         console.log("leer")
-        await renderAllPokemon();
-
+        renderAllPokemon();
     } else {
         await searchPokemonInJson();
     }
 }
 async function searchPokemonInJson() {
     let input = document.getElementById('inputsearch');
-    let url = "https://pokeapi.co/api/v2/pokemon?limit=200&offset=0"
-    let response = await fetch(url);
-    let responsejson = await response.json();
-    for (let i = 0; i < 898; i++) {
-        let pokemonname = responsejson['results'][i]['name']
+    searchPokemonArray = [];
+    for (let i = 0; i < allPokemonArray.length; i++) {
+        let pokemonname = allPokemonArray[i];
         if (pokemonname.toLowerCase().includes(input.value)) {
-            renderSinglePokemon(i, pokemonname);
+            searchPokemonArray.push(pokemonname)
         }
+    }
+    for (let j = 0; j < 10; j++) {
+        let pokemonname = searchPokemonArray[j];
+        renderSinglePokemon(j, pokemonname);
     }
 }
 async function renderSinglePokemon(i, pokemonname) {
     let content = document.getElementById('mainContent');
-    if (content.innerHTML.includes(pokemonname)) {
-        console.log("found")
-    }
     content.innerHTML = ``;
     let pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonname}`)
     pokemonjson = await pokemon.json();
-    console.log(pokemonjson)
     content.innerHTML += templatePokemonCard(i);
     renderPokemonInfo(i, pokemonjson);
 
+}
+
+async function loadAllPokemon() {
+    let url = "https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0"
+    let response = await fetch(url);
+    let pokemonjson = await response.json();
+    for (let i = 0; i < pokemonjson['count']; i++) {
+        let singlepokemon = pokemonjson['results'][i]['name'];
+        allPokemonArray.push(singlepokemon);
+    }
 }
 
 function capitalizeFirstLetter(string) {

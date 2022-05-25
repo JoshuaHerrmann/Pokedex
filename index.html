@@ -12,10 +12,10 @@
     <title>Pokedex</title>
 </head>
 
-<body onload="renderAllPokemon()">
+<body onload="renderAllPokemon(), loadAllPokemon()">
     <header>
         <h1>Pokedex</h1>
-        <div><input type="text" id="inputsearch" placeholder="Pokemon suchen..." onkeyup="searchPokemon()"></div>
+        <div><input type="text" id="inputsearch" placeholder="Pokemon suchen..." onkeyup="searchPokemon()"><button onclick="loadAllPokemon()">x</button></div>
         <div><input type="number" name="" value="10" id="hmpsinput" min="10" max="1000"><button onclick="howManyPokemons()" class="howManyPokemons">How many Pokemons shown?</button></div>
     </header>
     <div class="mainContent" id="mainContent">
