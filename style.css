@@ -194,13 +194,23 @@ header {
 
 .tableInfo {
     margin: 5px;
-    width: 500px;
+    width: 200px;
     border-spacing: 0;
+    text-align: right;
 }
 
 .tableStats {
     margin-top: 10px;
     margin: 5px;
-    width: 300px;
+    width: 200px;
     border-spacing: 0;
+    text-align: right;
+}
+
+tr td:first-of-type {
+    text-decoration: underline;
+}
+
+tr td:first-of-type {
+    text-align: left;
 }

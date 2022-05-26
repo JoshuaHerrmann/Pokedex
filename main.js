@@ -1,6 +1,7 @@
 let currentPokemon;
 let max_pokemon = 10;
 let allPokemonArray = [];
+let allPokemonImgArray = [];
 let searchPokemonArray = [];
 
 //functions
@@ -52,9 +53,37 @@ function renderInfoBack(index, currentPokemon) {
     let pokeid = document.getElementById(`pokedexIDBack${index}`);
     name.innerHTML = capitalizeFirstLetter(currentPokemon['name']);
     pokeid.innerHTML = `Pokemon ID #${currentPokemon['id']}`;
+    renderInfoBackStats(index, currentPokemon);
+    renderInfoBackInfos(index, currentPokemon);
 
 }
 
+function renderInfoBackInfos(index, currentPokemon) {
+    let weight = document.getElementById(`infoweight${index}`);
+    let height = document.getElementById(`infoheight${index}`);
+    let type = document.getElementById(`infotype${index}`);
+    weight.innerHTML = `${currentPokemon['weight']} Kg`
+    height.innerHTML = `${currentPokemon['height']}0 cm`
+    type.innerHTML = ``;
+    for (let j = 0; j < currentPokemon['types'].length; j++) {
+        type.innerHTML += `${currentPokemon['types'][j]['type']['name']} `
+    }
+}
+
+function renderInfoBackStats(index, currentPokemon) {
+    let hp = document.getElementById(`statshp${index}`);
+    let attack = document.getElementById(`statsattack${index}`);
+    let defense = document.getElementById(`statsdefense${index}`);
+    let spec_attack = document.getElementById(`statsspec_attack${index}`);
+    let spec_defense = document.getElementById(`statsspec_defense${index}`);
+    let initiative = document.getElementById(`statsinitiative${index}`);
+    hp.innerHTML = `${currentPokemon['stats'][0]['base_stat']}`
+    attack.innerHTML = `${currentPokemon['stats'][1]['base_stat']}`
+    defense.innerHTML = `${currentPokemon['stats'][2]['base_stat']}`
+    spec_attack.innerHTML = `${currentPokemon['stats'][3]['base_stat']}`
+    spec_defense.innerHTML = `${currentPokemon['stats'][4]['base_stat']}`
+    initiative.innerHTML = `${currentPokemon['stats'][5]['base_stat']}`
+}
 async function howManyPokemons() {
     let input = document.getElementById('hmpsinput');
     if (!input || input.value < 10) {
@@ -70,7 +99,7 @@ async function searchPokemon() {
     let input = document.getElementById('inputsearch');
     if (input.value == '') {
         max_pokemon = 10;
-        renderAllPokemon();
+        await renderAllPokemon();
     } else {
         await searchPokemonInJson();
     }
