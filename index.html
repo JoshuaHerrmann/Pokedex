@@ -10,15 +10,17 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="types.css">
     <link rel="stylesheet" href="fonts.css">
+    <link rel="icon" href="img/icon.png">
 
-    <title>Pokedex</title>
+    <title>🔴Pokédex⚪​</title>
 </head>
 
 <body onload="loadAllPokemon(),renderAllPokemon()">
     <header>
-        <h1 class="headerlogo">Pokedex</h1>
+        <!-- <h1 class="headerlogo"><b class="p1">P</b><b class="p2">o</b><b class="p1">k</b><b class="p2">e</b><b class="p1">d</b><b class="p2">e</b><b class="p1">x</b></h1> -->
+        <div class="headerlogo"><img src="img/Pokedex.png" alt=""></div>
         <div class="dropdown">
-            <h1>Load More</h1>
+            <div class="headerlogo"><img src="img/Load-More.png" alt=""></div>
             <div id="loadbtn" class="loadbtn"><input type="number" name="" value="10" id="hmpsinput" min="10" max="1000"><button onclick="howManyPokemons()" class="howManyPokemons">Max-Load...</button></div>
         </div>
         <div class="searchbar"><input type="text" id="inputsearch" class="inputsearch" placeholder="Search Pokemon..." onkeyup="searchPokemon()"></div>

@@ -222,3 +222,118 @@
     border: solid 2px white;
     box-shadow: 0px 0px 10px 5px rgba(105, 104, 104, 0.2);
 }
+
+
+/* Background img */
+
+.typenormalbg {
+    background-image: url(img/backgrounds/normal.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typefightingbg {
+    background-image: url(img/backgrounds/fighting.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typeflyingbg {
+    background-image: url(img/backgrounds/flying.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typepoisonbg {
+    background-image: url(img/backgrounds/poison.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typegroundbg {
+    background-image: url(img/backgrounds/ground.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typerockbg {
+    background-image: url(img/backgrounds/rock.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typebugbg {
+    background-image: url(img/backgrounds/bug.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typeghostbg {
+    background-image: url(img/backgrounds/ghost.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typesteelbg {
+    background-image: url(img/backgrounds/steel.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typefirebg {
+    background-image: url(img/backgrounds/fire.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typewaterbg {
+    background-image: url(img/backgrounds/water.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typegrassbg {
+    background-image: url(img/backgrounds/grass.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typeelectricbg {
+    background-image: url(img/backgrounds/electric.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typepsychicbg {
+    background-image: url(img/backgrounds/psychic.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typeicebg {
+    background-image: url(img/backgrounds/ice.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typedragonbg {
+    background-image: url(img/backgrounds/dragon.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typedarkbg {
+    background-image: url(img/backgrounds/dark.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typefairybg {
+    background-image: url(img/backgrounds/fairy.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.typeunknownbg {}
+
+.typeshadowbg {}

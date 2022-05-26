@@ -30,7 +30,7 @@ function renderInfoFront(index, currentPokemon) {
     let img = document.getElementById(`pokemonImg${index}`);
     name.innerHTML = capitalizeFirstLetter(currentPokemon['name']);
     pokeid.innerHTML = `Pokedex ID #${currentPokemon['id']}`;
-    img.src = currentPokemon['sprites']['front_default'];
+    img.src = currentPokemon['sprites']['other']['official-artwork']['front_default'];
     renderPokemonTypes(index, currentPokemon);
 }
 
@@ -42,9 +42,10 @@ function renderPokemonTypes(index, currentPokemon) {
         let typename = types[i]['type']['name'];
         let imgbg = document.getElementById(`imgdiv${index}`);
         let showTypes = document.getElementById(`pokemonTypes${index}`);
+        let typesarray = types[0]['type']['name']
         showTypes.innerHTML += templatePokemonTypes(typename);
-        back.classList.add(`type${types[0]['type']['name']}`);
-        imgbg.classList.add(`type${types[0]['type']['name']}`);
+        back.classList.add(`type${typesarray}`);
+        imgbg.classList.add(`type${typesarray}`, `type${typesarray}bg`);
     }
 }
 
