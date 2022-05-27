@@ -1,7 +1,6 @@
 let currentPokemon;
 let max_pokemon = 10;
 let allPokemonArray = [];
-let allPokemonImgArray = [];
 let searchPokemonArray = [];
 
 //functions
@@ -19,7 +18,7 @@ async function renderAllPokemon() {
     }
 }
 
-async function renderPokemonInfo(index, currentPokemon) {
+function renderPokemonInfo(index, currentPokemon) {
     renderInfoFront(index, currentPokemon);
     renderInfoBack(index, currentPokemon);
 }
@@ -85,7 +84,8 @@ function renderInfoBackStats(index, currentPokemon) {
     spec_defense.innerHTML = `${currentPokemon['stats'][4]['base_stat']}`
     initiative.innerHTML = `${currentPokemon['stats'][5]['base_stat']}`
 }
-async function howManyPokemons() {
+
+function howManyPokemons() {
     let input = document.getElementById('hmpsinput');
     if (!input || input.value < 10) {
         alert("Mindestens 10 Pokemons!")
@@ -96,21 +96,22 @@ async function howManyPokemons() {
     }
 }
 
-async function searchPokemon() {
+function searchPokemon() {
     let input = document.getElementById('inputsearch');
     if (input.value == '') {
         max_pokemon = 10;
-        await renderAllPokemon();
+        renderAllPokemon();
     } else {
-        await searchPokemonInJson();
+        searchPokemonInJson();
     }
 }
-async function searchPokemonInJson() {
+
+function searchPokemonInJson() {
     let input = document.getElementById('inputsearch');
     searchPokemonArray = [];
     for (let i = 0; i < allPokemonArray.length; i++) {
         let pokemonname = allPokemonArray[i];
-        if (pokemonname.toLowerCase().includes(input.value)) {
+        if (pokemonname.toLowerCase().startsWith(input.value)) {
             searchPokemonArray.push(pokemonname)
         }
     }

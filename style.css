@@ -10,6 +10,10 @@ body {
     letter-spacing: 1px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 p {
     margin: 0 !important;
 }
@@ -38,6 +42,7 @@ header {
 
 .headerlogo {
     height: 80px;
+    cursor: pointer;
 }
 
 .headerlogo img {
@@ -161,13 +166,18 @@ input::-webkit-inner-spin-button {
     width: 300px;
     height: 400px;
     background-color: var(--bordercard);
-    transform-style: preserve-3d;
-    transition: all 0.5s ease;
     margin-bottom: 10px;
     box-shadow: 0px 0px 10px 5px rgba(182, 182, 182, 0.4);
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
 }
 
-.pokemoncard:hover {
+.pokemoncardWHOLE {
+    height: 430px;
+    padding-bottom: 10px;
+}
+
+.pokemoncardWHOLE:hover .pokemoncard {
     transform: rotateY(180deg);
 }
 
@@ -258,4 +268,185 @@ tr td:first-of-type {
     text-decoration: underline;
     text-align: left;
     color: black;
+}
+
+.howManyPokemons {
+    cursor: pointer;
+}
+
+.howManyPokemons:hover {
+    background-color: #d1cece;
+}
+
+.toTop {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.toTopBtn {
+    background-color: transparent;
+    border: none;
+}
+
+.toTopBtn img {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 100%;
+    padding: 2px;
+}
+
+
+/* Responsive Design */
+
+@media(max-width:900px) {
+    .mainContent {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .searchbar {
+        right: 43%;
+    }
+    .toTop {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+    .toTopBtn {
+        background-color: transparent;
+        border: none;
+    }
+    .toTopBtn img {
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 100%;
+        padding: 2px;
+    }
+}
+
+@media(max-width:800px) {
+    header {
+        height: 260px;
+        background-color: rgba(255, 255, 255, 0.4);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .loadbtn {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        background-color: #6D6C6C;
+        z-index: 1;
+        padding-top: 20px;
+        margin-top: 0px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        width: 300px;
+        box-shadow: 0px 0px 10px 5px rgb(97 97 97 / 40%);
+    }
+    .searchbar {
+        right: 38%;
+        top: 106px;
+    }
+    .toTop {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+    .toTopBtn {
+        background-color: transparent;
+        border: none;
+    }
+    .toTopBtn img {
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 100%;
+        padding: 2px;
+    }
+}
+
+@media(max-width:350px) {
+    .mainContent {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .pokemoncardWHOLE {
+        width: auto;
+        margin-bottom: 10px;
+    }
+    .pokemoncard {
+        width: 250px;
+    }
+    .cardcontentfront {
+        width: 250px;
+    }
+    .pokemonImg {
+        width: auto;
+    }
+    .cardcontentback {
+        width: 235px;
+    }
+    .tableInfo {
+        width: 230px;
+    }
+    .tableStats {
+        width: 230px;
+    }
+    .searchbar {
+        position: absolute;
+        top: 106px;
+        right: 19%;
+    }
+    header {
+        height: 260px;
+        background-color: rgba(255, 255, 255, 0.4);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .loadbtn {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0;
+        background-color: #6D6C6C;
+        z-index: 1;
+        padding-top: 20px;
+        margin-top: 0px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        width: 300px;
+        box-shadow: 0px 0px 10px 5px rgb(97 97 97 / 40%);
+    }
+    .toTop {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+    .toTopBtn {
+        background-color: transparent;
+        border: none;
+    }
+    .toTopBtn img {
+        background-color: rgba(255, 255, 255, 0.4);
+        border-radius: 100%;
+        padding: 2px;
+    }
+}
+
+@media(max-height:900px) {
+    .pokemoncardWHOLE {
+        margin-bottom: 10px;
+    }
 }
