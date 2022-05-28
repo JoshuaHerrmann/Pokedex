@@ -184,6 +184,7 @@ input::-webkit-inner-spin-button {
 .cardcontentfront {
     position: absolute;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     background: var(--cardcontentbg);
     border: 1px solid rgba(158, 156, 156, 0.8);
     border-radius: 5px;
@@ -200,6 +201,7 @@ input::-webkit-inner-spin-button {
     width: 286px;
     height: 386px;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     transform: rotateY(180deg);
 }
 
@@ -368,6 +370,12 @@ tr td:first-of-type {
         background-color: rgba(255, 255, 255, 0.4);
         border-radius: 100%;
         padding: 2px;
+    }
+}
+
+@media(max-width:700px) {
+    .searchbar {
+        right: 26%;
     }
 }
 
