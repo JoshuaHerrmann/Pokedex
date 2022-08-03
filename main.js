@@ -3,12 +3,24 @@ let max_pokemon = 10;
 let allPokemonArray = [];
 let searchPokemonArray = [];
 
+
 //functions
 async function renderAllPokemon() {
     let content = document.getElementById('mainContent');
     content.innerHTML = ``;
-    let allPokemons = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${max_pokemon}&offset=0`)
-    allPokemonsjson = await allPokemons.json();
+    console.log('download start') // hier spinner einfügen
+    let allPokemons = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${max_pokemon}&offset=0`).then(async(pokemons) => {
+        let allPokemonsjson = await pokemons.json();
+        console.log(allPokemonsjson)
+        renderCards(allPokemonsjson)
+        console.log('download end') // hier spinner einfügen
+    })
+
+
+}
+
+async function renderCards(allPokemonsjson) {
+    let content = document.getElementById('mainContent');
     for (let i = 0; i < allPokemonsjson['count']; i++) {
         let urlsingle = allPokemonsjson['results'][i]['url']
         let urlsingleresponse = await fetch(urlsingle)
@@ -17,6 +29,7 @@ async function renderAllPokemon() {
         renderPokemonInfo(i, urlsinglejson);
     }
 }
+
 
 function renderPokemonInfo(index, currentPokemon) {
     renderInfoFront(index, currentPokemon);
@@ -85,22 +98,22 @@ function renderInfoBackStats(index, currentPokemon) {
     initiative.innerHTML = `${currentPokemon['stats'][5]['base_stat']}`
 }
 
-function howManyPokemons() {
+async function howManyPokemons() {
     let input = document.getElementById('hmpsinput');
     if (!input || input.value < 10) {
         alert("Mindestens 10 Pokemons!")
     } else {
         let max = input.value;
         max_pokemon = max;
-        renderAllPokemon();
+        await renderAllPokemon();
     }
 }
 
-function searchPokemon() {
+async function searchPokemon() {
     let input = document.getElementById('inputsearch');
     if (input.value == '') {
         max_pokemon = 10;
-        renderAllPokemon();
+        await renderAllPokemon();
     } else {
         searchPokemonInJson();
     }

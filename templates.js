@@ -1,3 +1,9 @@
+/**
+ *  This function returns a template for a single content card
+ * 
+ * @param {number} index - the index number of PokeAPI array 
+ * @returns 
+ */
 function templatePokemonCard(index) {
     return `
     <div class="pokemoncardWHOLE">
